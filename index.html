@@ -15,7 +15,7 @@
            I born on Tuesday and you're female, then you get a certain name and so on. Here are Ghanian day names :</p>
         
         <div class="akaName">
-          <p>Male Names: </p>
+          <h2>Male Names: </h2>
            <ul>
             <li>Sunday: Kwasi</li>
             <li>Monday: Kwadwo</li>
@@ -28,7 +28,7 @@
            </ul>
         </div>
         <div class="akaName">
-            <p>Female Names: </p>
+            <h2>Female Names: </h2>
              <ul>
               <li>Sunday: Akosua</li>
               <li>Monday: Adwoa</li>
@@ -41,8 +41,8 @@
              </ul>
           </div>     
         <div class="frm">
-          <p>Try out the application below: </p>
-          <form name="akanForm" action="" >
+          <h2>Try out the application below: </h2>
+          <form name="akanForm" id="aknfrm" action="" >
             
             <p>Enter your Birthday: </p>
             <label for="dateOfMonth">Date:</label>
@@ -105,6 +105,8 @@
                 //alert("gender you input is "+gender);
 
                 alert("your akan name is "+akanName(gender,date,month,year)+".");
+
+                document.getElementById("aknfrm").reset();
 
                 }
                 
