@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="index.js"></script>
+        <link href="css/styles.css" rel="stylesheet" text="text/css">
+        <title>Akan Name</title>
 
     </head>
     <body>
-        <form>
+        <h1>Akan Name Calculator</h1>
+
+        <p>The application below calculates and displays your Akan Name. Akan names are derived from Ghanian culture. 
+           Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week 
+           they were born depending on the gender. For example, if you were born on a Monday and you are male, then you're given certain name.
+           I born on Tuesday and you're female, then you get a certain name and so on. Here are Ghanian day names :</p>
+        
+        <div class="akaName">
+          <p>Male Names: </p>
+           <ul>
+            <li>Sunday: Kwasi</li>
+            <li>Monday: Kwadwo</li>
+            <li>Tuesday: Kwabena</li>
+            <li>Wednesday: Kwaku</li>
+            <li>Thursday:  Yaw</li>
+            <li>Friday: Kofi</li>
+            <li>Saturday: Kwame</li>
+
+           </ul>
+        </div>
+        <div class="akaName">
+            <p>Female Names: </p>
+             <ul>
+              <li>Sunday: Akosua</li>
+              <li>Monday: Adwoa</li>
+              <li>Tuesday: Abenaa</li>
+              <li>Wednesday: Akua</li>
+              <li>Thursday:  Yaa</li>
+              <li>Friday: Afua</li>
+              <li>Saturday: Ama</li>
+  
+             </ul>
+          </div>     
+        <div class="frm">
+          <p>Try out the application below: </p>
+          <form name="akanForm" action="" >
             
-            <p>Hi There, Enter your Birthday: </p>
+            <p>Enter your Birthday: </p>
             <label for="dateOfMonth">Date:</label>
             <input type="number" id="dateOfMonth" name="date" min="1" max="31" size="2">
             <label for="monthOfYear">Month: </label>
@@ -14,13 +52,65 @@
             <label for="year">Year Born:</label>
             <input type="number" id="year" name="yearBorn" min="1" max="2023" size="4"><br>             
             <p>Choose your gender: </p>
-            <input type="radio" id="maleRadio" name="genderChoice" value="male" checked>
+            <input type="radio" id="maleRadio" name="genderChoice" value="male" >
             <label for="maleRadio">male</label>
             <input type="radio" id="femaleRadio" name="genderChoice" value="female">
             <label for="femaleRadio">female</label><br>
             <br>        
-            <input type="submit">
+            <input type="submit" onclick="getFormData(this.form)">
 
-        </form>
+          </form>
+        </div>  
+        <script>
+            function getFormData(form){            
+
+
+                var year = document.forms["akanForm"]["year"].value;
+                var month = document.forms["akanForm"]["month"].value;
+                var date = document.forms["akanForm"]["date"].value;
+                var gender = document.forms["akanForm"]["genderChoice"].value;
+
+                if (year === ""){
+                    alert("Please input a valid year");
+                    var yearField = document.getElementById("year");
+                    yearField.style.backgroundColor ="#d6a7b1";
+                    
+                    return false;
+
+                } else if (month === ""){
+                    alert("Please input your month of birth");
+                    var monthField = document.getElementById("monthOfYear");
+                    monthField.style.backgroundColor ="#d6a7b1";
+                    return false;
+
+                } else if (date === ""){
+                    alert("Please input the date of the month you were born");
+                    var dateField = document.getElementById("dateOfMonth");
+                    dateField.style.backgroundColor ="#d6a7b1";
+                    return false;
+                } else if (gender === ""){
+                    alert("Please select your gender");
+                    var genderField = document.getElementById("genderChoice");
+                    dateField.style.backgroundColor ="#d6a7b1";
+
+
+
+                } 
+                
+                else{
+
+                //alert("year you input is "+year);
+                //alert("month you input is "+month);
+                //alert("date you input is "+date);
+                //alert("gender you input is "+gender);
+
+                alert("your akan name is "+akanName(gender,date,month,year)+".");
+
+                }
+                
+
+
+            }
+        </script>
     </body>
 </html>
